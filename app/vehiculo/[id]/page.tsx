@@ -2,29 +2,23 @@
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import React, { useRef, useState } from 'react'; // Agregamos useState
+import React, { useRef, useState } from 'react';
 
 // Data de especificaciones detalladas por carro
 const especificacionesPorCarro: any = {
-  "pulse-drive": [
-    { titulo: "Motor Turbo", destaque: "1.3L", desc: "Potencia eficiente y rendimiento dinámico ideal para la ciudad y carretera." },
+  "pulse-audace": [
+    { titulo: "Motor Turbo 200", destaque: "1.0L", desc: "Potencia eficiente y rendimiento dinámico ideal para la ciudad y carretera." },
     { titulo: "Rines de Aleación", destaque: "17\"", desc: "Acabado diamantado exclusivo que resalta su actitud robusta y SUV." },
     { titulo: "Transmisión", destaque: "CVT", desc: "Caja automática de 7 velocidades simuladas con modo Sport." },
     { titulo: "Multimedia", destaque: "10.1\"", desc: "Pantalla táctil flotante con Apple CarPlay y Android Auto inalámbrico." },
   ],
-  "fastback-audace": [
-    { titulo: "Motor Turbo 270", destaque: "1.3L", desc: "Respuesta deportiva con aceleración de 0 a 100 km/h en segundos." },
-    { titulo: "Capacidad", destaque: "600L", desc: "El maletero más espacioso y versátil de su categoría deportiva." },
-    { titulo: "Rines", destaque: "18\"", desc: "Diseño aerodinámico premium en aleación ligera." },
-    { titulo: "Seguridad", destaque: "ADAS", desc: "Sistema avanzado con frenado autónomo y mantenimiento de carril." },
-  ]
 };
 
 export default function PaginaVehiculo() {
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
-  const nombreCarro = id.replace('-', ' ').toUpperCase(); // Para usarlo en el mensaje
+  const nombreCarro = id.replace('-', ' ').toUpperCase(); 
   
   const specs = especificacionesPorCarro[id] || [
     { titulo: "Motor", destaque: "Eficiente", desc: "Rendimiento óptimo." },
@@ -53,16 +47,16 @@ export default function PaginaVehiculo() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Aquí pones el número de teléfono del concesionario (con código de país, sin el +)
+    // Número del concesionario
     const numeroWhatsApp = "584149266312"; 
     
-    // Armamos el mensaje dinámico
+    // Mensaje dinámico
     const mensaje = `¡Hola equipo de Fiat Chacao! 👋\n\nMi nombre es *${formData.nombre}*, estoy en la ciudad de *${formData.ciudad}* y mi número de contacto es *${formData.telefono}*.\n\nEstoy muy interesado en solicitar una cotización e información sobre el modelo: *${nombreCarro}* 🚗.\n\n¡Quedo atento!`;
     
-    // Codificamos el texto para que las URLs no se rompan por los espacios o saltos de línea
+    // Codificamos el texto
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
     
-    // Abrimos WhatsApp en una nueva pestaña
+    // Abrimos WhatsApp
     window.open(url, '_blank');
   };
 
@@ -153,7 +147,6 @@ export default function PaginaVehiculo() {
             <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-xl border border-slate-100">
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 
-                {/* Campo Nombre */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="nombre" className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Tu Nombre</label>
                   <input 
@@ -167,7 +160,6 @@ export default function PaginaVehiculo() {
                   />
                 </div>
 
-                {/* Campo Teléfono */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="telefono" className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Tu Teléfono (WhatsApp)</label>
                   <input 
@@ -181,7 +173,6 @@ export default function PaginaVehiculo() {
                   />
                 </div>
 
-                {/* Campo Ciudad */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="ciudad" className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Ciudad</label>
                   <input 
@@ -195,7 +186,6 @@ export default function PaginaVehiculo() {
                   />
                 </div>
 
-                {/* Botón de Enviar */}
                 <button 
                   type="submit"
                   className="w-full mt-2 px-8 py-5 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold uppercase tracking-widest text-sm transition-all shadow-lg shadow-red-600/30 flex items-center justify-center gap-3 group"

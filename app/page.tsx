@@ -5,20 +5,12 @@ import HeroSlider from './components/HeroSlider';
 export default function Home() {
   const vehiculos = [
     { 
-      id: "pulse-drive", // Usaremos este ID para la URL
-      modelo: "Pulse Drive 1.3", 
+      id: "pulse-audace", // Actualizado para coincidir con la data de detalles
+      modelo: "Pulse Audace", // Nombre real basado en las especificaciones (Rines 17", Pantalla 10.1")
       categoria: "SUV", 
-      precio: "Ref. $18,500", 
+      precio: "Ref. $22,500", // Ajusté el precio referencial por ser una versión superior (puedes cambiarlo)
       imagen: "/img/pulse2026.png",
-      descripcion: "El SUV que combina tecnología y diseño italiano para la ciudad."
-    },
-    { 
-      id: "fastback-audace", 
-      modelo: "Fastback Audace", 
-      categoria: "SUV Coupé", 
-      precio: "Ref. $24,000", 
-      imagen: "/img/fastback.png",
-      descripcion: "Sofisticación y deportividad en un diseño Coupé único."
+      descripcion: "El SUV que combina potencia turbo y tecnología avanzada para la ciudad."
     },
     // ... agrega el resto siguiendo este formato de 'id'
   ];
