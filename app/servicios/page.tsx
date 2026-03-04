@@ -43,8 +43,8 @@ const serviciosData = [
 ];
 
 export default function ServiciosPage() {
-  // Variantes para animación en cascada
-  const containerVariants = {
+  // Variantes para animación en cascada - SE APLICÓ EL TIPADO ANY
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -52,7 +52,7 @@ export default function ServiciosPage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60, damping: 15 } }
   };
@@ -132,7 +132,7 @@ export default function ServiciosPage() {
               Agenda tu cita en nuestro taller autorizado y deja tu vehículo en manos de los expertos.
             </p>
             <a 
-              href="https://wa.me/584149266532" // Cambia esto por tu WhatsApp
+              href="https://wa.me/584149266532" 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 md:px-14 py-4 md:py-5 bg-white text-red-600 rounded-full text-sm md:text-lg font-bold transition-all hover:scale-105 hover:shadow-xl shadow-black/20"
